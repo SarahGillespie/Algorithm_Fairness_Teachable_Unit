@@ -1,0 +1,42 @@
+---
+title: "Lab# - Fairness"
+author: "SDS 293: Modeling for Machine Learning"
+date: "12/16/2021"
+output: html_document
+---
+
+## Before we begin...
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
+
+```
+
+
+```{python}
+
+library(reticulate)
+os <- import("os")
+os$listdir(".")
+
+```
+
+
+## Goals for this lab
+
+
+
+## Data
+
+
+
+## Calculating trust scores
+
+## Submitting this lab
+
+
+
+
+### Resources consulted
+
