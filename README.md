@@ -1,2 +1,2 @@
-# Algorithm_Fairness_Teachable_Unit
+# Algorithm Fairness Teachable Unit
 A one week teachable unit about creating ethical machine learning algorithms, covering different definitions of fairness, the mathematics behind trust scores, and a lab implementing both of these ideas. Built for Smith College's Statistical and Data Sciences program's Modeling for Machine Learning course but adaptable to most undergraduate machine learning courses. Reach out to me via Twitter or Github issues for the answer key to the worksheet.
