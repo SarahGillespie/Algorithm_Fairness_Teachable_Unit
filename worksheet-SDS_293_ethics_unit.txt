@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+
+\oddsidemargin 0in  %0.5in
+\topmargin     0in
+\leftmargin    0in
+\rightmargin   0in
+\textheight    8in
+\textwidth     6.5in %6in
+
+\usepackage{etoolbox}
+\usepackage{url,hyperref}
+\usepackage{fancyhdr}
+\usepackage{xspace}
+\usepackage{textgreek}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[us,nodayofweek,hhmmss]{datetime}
+\usepackage{tikz}
+\usetikzlibrary{chains, positioning, quotes}
+% \pagestyle{fancy}
+% \chead{CV}
+% \lhead{Katherine M. Kinnaird}
+% \rhead{\today}
+% \rfoot{}
+% \cfoot{}
+% \lfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\R}{\textsf{R}\xspace}
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\mml}{\emph{Mathematics for Machine Learning}}
+
+\newcommand{\bishop}{\emph{Pattern Recognition and Machine Learning}}
+
+
+
+
+\begin{document}
+
+
+
+\section*{\centering \Large \textbf{Group Problem Set - Monday}} 
+\begin{center}
+\vspace{-2mm}
+    Date!
+\end{center}
+
+\noindent Consider two hypothetical algorithms.
+
+\begin{itemize}
+
+\item Algorithm A: an algorithm that sorts Smith students into different houses (dorms). The training data is house preference and responses about personal preferences (i.e. noise level preference, peer substance use, distance from academic buildings, whether or not the house has a dining hall). The test data is a group of first year students that need to be sorted into different houses.
+
+\item Algorithm B: an algorithm that suggests people for a company to interview. The training data is past resumes submitted to the company and which people were hired. The test data is resumes submitted for current job openings that need to be filled.
+\end{itemize}
+
+\subsection*{Problem 1 - 2 pts}
+
+Consider how each algorithm upholds each fairness definition.
+
+\begin{itemize}
+
+\item Counterfactual fairness
+
+\item Equality of opportunity
+
+\item Group fairness
+
+\item Individual fairness
+
+\item Preference-based fairness
+
+\end{itemize}
+
+
+\subsection*{Problem 2 - 2 pts}
+
+Does each example uphold the four other fairness definitions? Does the example uphold any of the other fairness definitions? Could you change your example in a way such that your algorithm does uphold all the fairness definitions?
+    
+
+\subsection*{Problem 3 - 2 pts}
+
+What about data points (people) that belong to two or more protected groups? What about unique input, like natural language or race, rather than numeric values?
+
+\subsection*{Problem 4 - 2 pts}
+
+Are there any groups that might be disproportionately harmed by even your best algorithm? Consider the algorithm’s treatment and impact.
+
+\subsection*{Problem 5 - 2 pts}
+
+Could you collect, group or reshape your hypothetical algorithm’s data to uphold fairness definitions that might not otherwise be upheld?
+
+\subsection*{Problem 6 - 2 pts}
+
+Are there any groups that might be disproportionately harmed by even your best data collection? Consider the algorithm’s treatment and impact.
+
+\pagebreak
+
+\section*{\centering \Large \textbf{Group Problem Set - Wednesday}} 
+\begin{center}
+\vspace{-2mm}
+    Date!
+\end{center}
+
+\noindent Consider the metrics from this week's readings used to check the accuracy of an algorithm’s predictions: trust scores, confidence scores, and credibility scores.
+
+\subsection*{Problem 1 - 2 pts}
+
+Draw a Venn diagram of the trust, confidence, and credibility scores.
+
+\subsection*{Problem 2 - 2 pts}
+
+Does creating trust, credibility, and confidence scores while running the model change the model’s output?
+
+\subsection*{Problem 3 - 2 pts}
+
+How could this relate to fairness in a real-world application?
+
+\end{document}
