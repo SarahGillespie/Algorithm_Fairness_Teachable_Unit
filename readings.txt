@@ -1,0 +1,23 @@
+Readings for the ethics unit:
+
+Monday: learn about different fairness definitions
+Academic paper reading:  On Formalizing Fairness in Prediction with Machine Learning
+Sections: 2. What is fair? (Formalizations of fairness) and 3. Prospective notions of fairness.
+Located at https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf
+
+
+
+Wednesday: learn about trust scores
+Academic paper reading: Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning
+Sections: start with VIII. CONCLUSIONS, then read III. ON CONFIDENCE, INTERPRETABILITY & ROBUSTNESS, and IV. DEEP K-NEAREST NEIGHBORS ALGORITHM
+Located at https://arxiv.org/pdf/1803.04765.pdf
+
+Academic paper reading: To Trust Or Not To Trust A Classifier
+Sections: Abstract, 3 Algorithm: The Trust Score, 5 Experiments, Conclusions.
+Located at https://arxiv.org/abs/1805.11783
+
+
+Additional readings:
+Skim the entire paper, On Formalizing Fairness in Prediction with Machine Learning
+Skim the entire paper of To Trust Or Not To Trust A Classifier, specifically looking at how throughly the trust scores were analyzed and proven in different statistical situations.
+The Medium article discussing how the viral graphic of equality vs. equity might not be the best way to look at fairness: https://medium.com/@eec/this-equity-picture-is-actually-white-supremacy-at-work-59f4ea700509
