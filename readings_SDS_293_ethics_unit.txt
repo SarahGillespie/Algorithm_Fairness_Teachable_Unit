@@ -3,7 +3,7 @@ Readings for the ethics unit:
 Monday: learn about different fairness definitions
 Academic paper reading:  On Formalizing Fairness in Prediction with Machine Learning
 Sections: 2. What is fair? (Formalizations of fairness) and 3. Prospective notions of fairness.
-Located at https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf
+Located at https://arxiv.org/abs/1710.03184
 
 
 

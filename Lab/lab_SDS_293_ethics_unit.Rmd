@@ -26,6 +26,7 @@ reticulate::py_config() # Double check that reticulate is actually using your ne
 reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn wasn't coming up via anaconda.
 reticulate::py_install("matplotlib")
 reticulate::py_install("keras")
+reticulate::py_install("tensorflow")
 
 # setting up the Python environment and bringing in the required Python packages is important.
 # It will probably take a little while so be patient and try to avoid accidentally running
