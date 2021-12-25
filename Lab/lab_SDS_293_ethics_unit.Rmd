@@ -35,9 +35,16 @@ reticulate::py_install("tensorflow")
 # try installing the library through pip rather than anaconda
 ```
 
-## Goals for this lab
+# Goals for this lab
 Compute trust scores for the model's predictions of wine types and handwritten numbers.
 Practice working with Python in an R environment.
+
+# Note:
+The content of this lab is overwhelmingly from Google's Trust Scores paper and 
+published code, just converted to work in R. The paper, code, and other resources are cited below.
+This includes needing to have the trustscore.py and trustscore_evaluation.py files
+in the same folder as this lab becuase the Python functions are sourced
+directly from those files created by the paper's authors.
 
 ```{python}
 import numpy as np
@@ -92,7 +99,7 @@ print(trust_score) # prints the trust scores for each point in the inputted data
 
 ```
 
-### Check for understanding:
+# Check for understanding:
 Why are the trust scores generally between 0 and 2?'
 
 
@@ -174,19 +181,19 @@ for dataset_idx,  dataset_name in enumerate(dataset_names):
 
 
 ```
-### Check for understanding:
+# Check for understanding:
 Explain what the x-axis and y-axis of this graph means, in one to two sentences.
 
-## Going a step further
+# Going a step further
 Try another model from the trustscore_evaluation.py file, like run_random_forest() or run_simple_NN().
 
 
-## Submitting this lab
+# Submitting this lab
 
 Write about a situation in a past lab or real-life where you wish you could have used trust scores or a similar metric to check your model's predictions. If you cannot think of a situation, then detail why you don't think trust scores were necessary for that model.
 
 
-References:
+# References:
 Jiang, H., & Hembise, C. (n.d.). *Google/TrustScore: To trust or not to trust a classifier. A measure of uncertainty for any trained (possibly Black-box) classifier which is more effective than the classifier's own implied confidence (e.g. softmax probability for a neural network)*. GitHub. Retrieved December 22, 2021, from https://github.com/google/TrustScore
 
 Jiang, H., Kim, B., Guan, M. Y., & Gupta, M. (2018, October 26). *To trust or not to trust a classifier*. arXiv.org. Retrieved December 22, 2021, from https://arxiv.org/abs/1805.11783 
@@ -200,7 +207,7 @@ Interface to python. Interface to Python • reticulate. (n.d.). Retrieved Decem
 Yahya, & Mortensen, P. (2021, May 8). *Convergencewarning: Lbfgs failed to converge (status=1): Stop: Total no. of iterations reached limit*. Stack Overflow. Retrieved December 22, 2021, from https://stackoverflow.com/a/62659927
 
 
-Licensce:
+# Licence:
 This teachable unit is created from the references listed above, as well as my own work. It is offered under the Apache Licence.
 
 Copyright 2021 Sarah Gillespie
