@@ -1,0 +1,163 @@
+---
+title: "Trust Scores in R"
+author: "Sarah Gillespie"
+output: html_document
+---
+
+## Before we begin...
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
+
+```
+
+```{r libraries}
+
+# Load the R libraries
+library(palmerpenguins) # bring in data about penguin species
+library(dplyr) # tools for data wrangling in R
+library(reticulate) # provides a comprehensive set of tools for interoperability between Python and R.
+
+```
+
+```{r}
+# configure python
+reticulate::py_config() # Double check that reticulate is actually using your new conda env.
+reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn wasn't coming up via anaconda.
+reticulate::py_install("matplotlib")
+reticulate::py_install("keras")
+reticulate::py_install("pandas")
+
+# setting up the Python environment and bringing in the required Python packages is important.
+# Running this code will likely take 5 to 10 minutes if you do not already have
+# these python packages installed. Otherwise, 
+
+# common trouble shooting:
+# if you're missing a package then try adding its name in an additonal line of py_install
+# if py_install isn't working then try adding the pip = TRUE argument to try installing
+# the library through pip rather than anaconda
+```
+
+```{python}
+import numpy as np
+import trustscore # you need to have trustscore.py in the same folder as this .Rmd file to import it
+import trustscore_evaluation  # you need to have trustscore_evaluation.py in the same folder as this .Rmd file to import it
+import numpy as np
+import matplotlib.pyplot as plt
+import keras
+import pandas as pd
+
+# heads up! there might be some scary errors about "dlerror: cudart64_110.dll not found".
+# It's just a warning and you can ignore it.
+
+```
+
+```{r}
+
+# data
+penguins_df <- penguins %>%
+    dplyr::filter(complete.cases(.))
+# remove all lines with missing values so the model can fit the data
+ 
+penguins_data <- penguins_df %>%
+  dplyr::select(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g)
+
+# target: species
+penguins_target <- penguins_df %>%
+  dplyr::select(species)
+  
+  
+```
+
+
+```{python}
+# Import penguins from R into python
+penguins_data = r.penguins_data
+
+penguins_target = r.penguins_target
+
+# python function: encode each penguin species to be a number.
+# purpose: make it easier for the model to assign a species prediction and its trust score
+
+dictionary = {}
+current_index = 0
+
+def encode(value):
+    if value in dictionary:
+      return dictionary[value]
+    else:
+      global current_index
+      
+      new_index = current_index
+      dictionary[value] = new_index
+      current_index = current_index + 1
+      
+      return new_index
+
+X_penguins = penguins_data
+
+y_penguins = list(map(encode, penguins_target.values.ravel()))
+# at this point y_penguins is a list. We will need to make it a numpy array later.
+
+print(dictionary) # dictionary with each penguin species connected to its assigned number
+```
+
+## Logistic Regression
+```{python logistic regression model}
+
+# NOTE: you may want to run each of these one line at a time in the console.
+
+# import the model
+from sklearn.linear_model import LogisticRegression
+
+# Train logistic regression on digits.
+model = LogisticRegression()
+
+# fit the model
+model.fit(X_penguins, y_penguins)
+
+# Implement the model / create outputs on testing set.
+y_pred = model.predict(X_penguins)
+# You may get a "failed to converge" and "max number of iterations reached" warning
+# this is more about the data not fitting well to the assigned model rather than a tech issue.
+# it can safely be ignored.
+
+# Initialize trust score.
+trust_model = trustscore.TrustScore()
+
+# convert the inputs into numpy arrays
+X_penguins = X_penguins.to_numpy()
+y_penguins = np.array(y_penguins)
+
+# fit the trust scores model
+trust_model.fit(X_penguins, y_penguins)
+
+# the model will be fitted. No output.
+```
+
+```{python}
+
+# Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.
+trust_score = trust_model.get_score(X_penguins, y_pred)
+
+# prints the trust scores for each point in the inputted data set
+print(trust_score)
+
+```
+
+Other models to try:
+from sklearn.svm import LinearSVC
+from sklearn.ensemble import RandomForestClassifier
+
+```{r}
+# use this code to trace back the last error, if needed.
+# py_last_error()
+```
+
+
+### Resources
+Trust Scores functions from the Google Scholars paper: https://github.com/google/TrustScore
+To Trust Or Not To Trust A Classifier paper by Heinrich Jiang, Been Kim, Melody Y. Guan, Maya Gupta: https://arxiv.org/abs/1805.11783
+Reticulate documentation: https://rstudio.github.io/reticulate/
+
