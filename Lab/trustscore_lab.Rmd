@@ -169,13 +169,81 @@ Are there any negative trust scores? Why do you think that is?
 
 Do a quick skim and find a trust score that is an outliar compared to the other numbers. Describe that trust score's numeric value through its context in the model as a whole.
 
+```{python}
+# Creates graphs about how correct the prediction is for the wine dataset via logistic regression
+
+# this will produce matplotlib graphs below the code chunk, like how ggplot does.
+# it will also produce some scary looking but generally ignoreable text about
+# reaching the total number of iterations.
+# According to Stack Overflow, this means
+# "On the other hand, if the error is varying noticeably (even if the error is 
+# relatively small [like in your case the score was good], but rather the differences 
+# between the errors per iteration is greater than some tolerance) then we say the 
+# algorithm did not converge." - https://stackoverflow.com/a/62659927
+
+datasets = [(X_penguins, y_penguins)]
+dataset_names = ["Penguins"]
+
+for dataset_idx,  dataset_name in enumerate(dataset_names):
+  extra_plot_title = dataset_name + " | Logistic Regression | Predict Correct"
+  percentile_levels = [0 + 0.5 * i for i in range(200)]
+  signal_names = ["Trust Score"]
+  signals = [trustscore.TrustScore()]
+  trainer = trustscore_evaluation.run_logistic
+  X, y = datasets[dataset_idx]
+  trustscore_evaluation.run_precision_recall_experiment_general(X,
+                                                                y,
+                                                                n_repeats=10,
+                                                                percentile_levels=percentile_levels,
+                                                                trainer=trainer,
+                                                                signal_names=signal_names,
+                                                                signals=signals,
+                                                                extra_plot_title=extra_plot_title,
+                                                                skip_print=True,
+                                                                predict_when_correct=True)
+
+```
 
 
-Other models to try:
+```{python}
+# Create a graph about the points in the Wine dataset that were classified incorrectly, broken down by the model confidence and the trust score
+
+for dataset_idx,  dataset_name in enumerate(dataset_names):
+  extra_plot_title = dataset_name + " | Logistic Regression | Predict Incorrect"
+  percentile_levels = [70 + 0.5 * i for i in range(60)]
+  signal_names = ["Trust Score"]
+  signals = [trustscore.TrustScore()]
+  trainer = trustscore_evaluation.run_logistic
+  X, y = datasets[dataset_idx]
+  trustscore_evaluation.run_precision_recall_experiment_general(X,
+                                                                y,
+                                                                n_repeats=10,
+                                                                percentile_levels=percentile_levels,
+                                                                trainer=trainer,
+                                                                signal_names=signal_names,
+                                                                signals=signals,
+                                                                extra_plot_title=extra_plot_title,
+                                                                skip_print=True)
+
+```
+
+# Check for understanding:
+Explain what the x-axis and y-axis of this graph means, in one to two sentences.
+
+# Going a step further
+Try another model from the trustscore_evaluation.py file, like LinearSVC or RandomForestClassifier rather LogisticRegression.
+Import the model with:
 from sklearn.svm import LinearSVC
 from sklearn.ensemble import RandomForestClassifier
 
-```{r}
+
+# Submitting this lab
+
+Write about a situation in a past lab or real-life where you wish you could have used trust scores or a similar metric to check your model's predictions. If you cannot think of a situation, then detail why you don't think trust scores were necessary for that model.
+
+
+
+```{r error tracing}
 # use this code to trace back the last error, if needed.
 # py_last_error()
 ```
