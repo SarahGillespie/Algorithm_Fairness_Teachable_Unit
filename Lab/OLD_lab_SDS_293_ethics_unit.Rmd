@@ -15,6 +15,9 @@ library(reticulate) # provides a comprehensive set of tools for interoperability
 ```
 
 ```{r set up the python environment}
+conda_create("r-py-conda-3.6", python_version = "3.6")
+conda_install(envname = "r-py-conda-3.6", 
+              packages=("tensorflow"))
 
 # configure python
 reticulate::py_config() # Double check that reticulate is actually using your new conda env.
@@ -23,7 +26,7 @@ reticulate::py_config() # Double check that reticulate is actually using your ne
 reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn wasn't coming up via anaconda.
 reticulate::py_install("matplotlib")
 reticulate::py_install("keras")
-reticulate::py_install("tensorflow")
+# reticulate::py_install("tensorflow")
 
 # It will probably take a little while so be patient and try to avoid accidentally running
 # this chunk of code.
