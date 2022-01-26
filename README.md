@@ -5,7 +5,7 @@
 This unit contains one lab, two lectures, two groupwork worksheets, and assigned readings from foundational academic research in this field. By the end of the unit, students will be able to define algorithms' fairness goals and conduct mathematical analysis in R and Python to consider the trustworthiness of many common machine learning outputs.
 
 
-This unit is built for Smith College's Statistical and Data Sciences program's Modeling for Machine Learning course but is adaptable to most undergraduate machine learning courses. Please reach out to Sarah Gillespie via Github issues for the answer key to the worksheet.
+This unit is built for Smith College's Statistical and Data Sciences program's Modeling for Machine Learning course but is adaptable to most undergraduate machine learning courses. Please reach out to Sarah Gillespie via Github issues for the answer key to the worksheet. The worksheet answer key is in a private repository.
 
 
 Much of this unit is based on To Trust Or Not To Trust A Classifier's concepts and code and the fairness concepts put forth in On Formalizing Fairness in Prediction with Machine Learning. All references are cited below.
