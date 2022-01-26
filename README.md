@@ -8,7 +8,7 @@ This unit contains one lab, two lectures, two groupwork worksheets, and assigned
 This unit is built for Smith College's Statistical and Data Sciences program's Modeling for Machine Learning course but is adaptable to most undergraduate machine learning courses. Please reach out to Sarah Gillespie via Github issues for the answer key to the worksheet. The worksheet answer key is in a private repository.
 
 
-Much of this unit is based on *To Trust Or Not To Trust A Classifier*'s concepts and code and the fairness categories put forth in *On Formalizing Fairness in Prediction with Machine Learning*. All references are cited below.
+Much of this unit is based on *To Trust Or Not To Trust A Classifier*'s concepts and code and the fairness categories put forth in *On Formalizing Fairness in Prediction with Machine Learning*.
 
 
 #### References:
@@ -26,7 +26,7 @@ Interface to python. Interface to Python • reticulate. (n.d.). Retrieved Decem
 Yahya, & Mortensen, P. (2021, May 8). *Convergencewarning: Lbfgs failed to converge (status=1): Stop: Total no. of iterations reached limit*. Stack Overflow. Retrieved December 22, 2021, from https://stackoverflow.com/a/62659927
 
 
-#### Licensce:
+#### License:
 This teachable unit is created from the references listed above, as well as my own work. It is offered under the Apache Licence.
 
 Copyright 2021 Sarah Gillespie
